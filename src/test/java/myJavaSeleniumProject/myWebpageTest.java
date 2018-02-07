@@ -38,6 +38,11 @@ public class myWebpageTest {
 		// create click event
 		element = driver.findElement(By.name("submit"));
 		element.click();
+		System.out.println("Text: "+element.getText());
+		
+		// get the text of the H2 tag
+		element = driver.findElement(By.tagName("h2"));
+		System.out.println("H2 Text: "+element.getText());
 		
 		// print completion of test
 		System.out.println("Test completed!");
