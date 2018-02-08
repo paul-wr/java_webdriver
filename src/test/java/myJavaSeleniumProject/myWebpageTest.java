@@ -4,6 +4,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,7 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class myWebpageTest {
 	
 	@Test
-	public static void main(String[] args) throws InterruptedException {
+	public void webpageTest() throws InterruptedException {
 		// set system property for gecko driver
 		System.setProperty("webdriver.gecko.driver",  "/Users/mainaccount/developer/Selenium/geckodriver");
 		
@@ -44,14 +45,27 @@ public class myWebpageTest {
 		element = driver.findElement(By.tagName("h2"));
 		System.out.println("H2 Text: "+element.getText());
 		
-		// print completion of test
-		System.out.println("Test completed!");
-		
-		// Thread.sleep(5000);
-		// driver.quit();
-		
-		
+		// element test
+        copyrightCheck(element, driver);
 
-	}
+        // print completion of test
+        System.out.println("Test completed!");
+
+        // Thread.sleep(5000);
+        // driver.quit();
+
+    }
+
+    public void copyrightCheck(WebElement element, WebDriver driver){
+
+        try{
+            WebElement footer = driver.findElement(By.id("footer"));
+            if(!footer.getText().contains("©")){
+                System.err.println("Copyright symbol not found on page!");
+            }
+        }catch(NoSuchElementException e){
+            System.err.println("Footer not found on page!");
+        }
+    }
 
 }
