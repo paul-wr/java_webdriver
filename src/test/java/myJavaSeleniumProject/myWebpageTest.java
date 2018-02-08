@@ -10,10 +10,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class myWebpageTest {
+public class MyWebpageTest {
 	
 	@Test
 	public void webpageTest() throws InterruptedException {
@@ -21,8 +22,13 @@ public class myWebpageTest {
 		System.setProperty("webdriver.gecko.driver",  "/Users/mainaccount/developer/Selenium/geckodriver");
 		
 		// set capabilities
-		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		// DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		// capabilities.setCapability("marionette", true);
+		
+		// set capabilities
+		FirefoxOptions capabilities = new FirefoxOptions();
 		capabilities.setCapability("marionette", true);
+		
 		
 		// declare WebDriver
 		WebDriver driver = new FirefoxDriver();
@@ -42,6 +48,7 @@ public class myWebpageTest {
 		element = driver.findElement(By.name("submit"));
 		element.click();
 		System.out.println("Text: "+element.getText());
+		
 		
 		// get the text of the H2 tag
 		element = driver.findElement(By.tagName("h2"));
