@@ -1,5 +1,7 @@
 package myJavaSeleniumProject;
 
+import static org.junit.Assert.*;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -50,6 +52,7 @@ public class myWebpageTest {
 
         // print completion of test
         System.out.println("Test completed!");
+
 
         // Thread.sleep(5000);
         // driver.quit();
