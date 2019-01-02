@@ -36,7 +36,7 @@ public class MyWebpageTest {
 		// get the webpage under test
 		driver.get("file:///Users/mainaccount/developer/webdriver_java/test.html");
 		
-		// get an element by id
+		// get an element by name
 		WebElement element = driver.findElement(By.name("uname"));
 		element.sendKeys("admin");
 		
